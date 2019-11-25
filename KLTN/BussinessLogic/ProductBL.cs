@@ -10,12 +10,27 @@ namespace BussinessLogic
 {
     public class ProductBL
     {
-       public int AddNewProduct(ProductBO objProductBL)
+        ProductDA objProductDA = new ProductDA();
+        public int AddNewProduct(ProductBO objProductBL)
         {
             try
             {
-                ProductDA objProductDA = new ProductDA();
-                return objProductDA.AddProductDetail(objProductBL);
+                
+                return objProductDA.AddProduct(objProductBL);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public List<ProductBO> ListAllProducts()
+        {
+            try
+            {
+                return objProductDA.LoadAllProduct();
 
             }
             catch (Exception)

@@ -3,42 +3,43 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <form id="AddProductForm">
-        <div style="margin: 0px auto; padding-left: 370px; padding-right: 30px; overflow: auto;">
+        <div class="container">
             <div class="table-resposive">
-                <table class="table">
+                <table class="table table-striped">
                     <tr>
-                        <td colspan="2" style="background-color: Green; height: 30px; color: White;" align="center">Thêm Sản phẩm
+                        <td class="text-center" colspan="2" >
+                            <h3>Thêm Sản phẩm</h3>
                         </td>
                     </tr>
                     <tr>
                         <td>Mã </td>
                         <td>
-                            <asp:TextBox ID="txtID" Width="150px" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtID" runat="server" class="form-control" ></asp:TextBox>
 
                         </td>
                     </tr>
                     <tr>
                         <td>Tên </td>
                         <td>
-                            <asp:TextBox ID="txtName" Width="150px" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtName" class="form-control"  runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td>Hạn Sử Dụng </td>
                         <td>
-                            <asp:TextBox TextMode="DateTime" ID="txtExpiryDate" Width="150px" runat="server"></asp:TextBox>
+                            <asp:TextBox TextMode="DateTime" ID="txtExpiryDate" class="form-control"  runat="server" ></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td>Tên Công Ty </td>
                         <td>
-                            <asp:TextBox ID="txtCompany" Width="150px" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtCompany" class="form-control"  runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td>Năm Sản Xuất   </td>
                         <td>
-                            <asp:TextBox ID="txtYear" Width="150px" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtYear" class="form-control"  runat="server"></asp:TextBox>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidatorYear"
                                 ControlToValidate="txtYear" runat="server"
                                 ErrorMessage="Only Numbers allowed"
@@ -49,7 +50,7 @@
                     <tr>
                         <td>Loại Hàng  </td>
                         <td>
-                            <asp:TextBox ID="txtCategory" Width="150px" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtCategory" class="form-control"  runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>

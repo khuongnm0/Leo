@@ -14,20 +14,13 @@ namespace DataAccess
     public class ProductDA
     {
         public SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["KTLT"].ToString());
-        public int AddProductDetail(ProductBO product)
+        public int AddProduct(ProductBO product)
         {
+            string query = "INSERT INTO Product values (" + product.ID + ",'" + product.Name + "','" + product.ExpiryDate + "','" + product.CompanyName + "'," + product.Year + ",'" + product.Category + "')";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
             try
             {
-                /* Because We will put all out values from our (UserRegistration.aspx) To in Bussiness object and then Pass it to Bussiness logic and then to DataAcess  this way the flow carry on*/
-                string query = "Insert into Product values ('" + product.ID + "','" + product.Name + "','" + product.ExpiryDate + "','" + product.CompanyName + "','" + product.Year + "','" + product.Category + "')";
-                SqlCommand cmd = new SqlCommand(query, connection);
-                //cmd.CommandType = CommandType.StoredProcedure;
-                //cmd.Parameters.AddWithValue("@Id", productBO.ID);
-                //cmd.Parameters.AddWithValue("@Name", productBO.Name);
-                //cmd.Parameters.AddWithValue("@ExpiryDate", productBO.ExpiryDate);
-                //cmd.Parameters.AddWithValue("@CompanyName", productBO.CompanyName);
-                //cmd.Parameters.AddWithValue("@Year", productBO.Year);
-                //cmd.Parameters.AddWithValue("@Category", productBO.Category);
                 connection.Open();
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -36,6 +29,55 @@ namespace DataAccess
             catch
             {
                 throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public List<ProductBO> LoadAllProduct()
+        {
+            string query = "SELECT * FROM Product";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataReader dataReader;
+            List<ProductBO> rs = new List<ProductBO>();
+
+            try
+            {
+           
+                connection.Open();
+                dataReader = cmd.ExecuteReader();
+               
+                while (dataReader.Read())
+                {
+                    rs.Add(new ProductBO()
+                    {
+                        ID = dataReader.GetInt32(dataReader.GetOrdinal("ID")),
+                        Name = dataReader.GetString(dataReader.GetOrdinal("Name")),
+                        ExpiryDate = dataReader.GetDateTime(dataReader.GetOrdinal("ExpiryDate")),
+                        CompanyName = dataReader.GetString(dataReader.GetOrdinal("CompanyName")),
+                        Year = dataReader.GetInt32(dataReader.GetOrdinal("Year")),
+                        Category = dataReader.GetString(dataReader.GetOrdinal("Category")),
+
+                    });
+                }
+
+                dataReader.Close();
+                cmd.Dispose();
+
+                return rs;
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

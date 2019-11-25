@@ -24,11 +24,12 @@ namespace KLTN
         protected void BtnSave_Click(object sender, EventArgs e)
         {
             ProductBO newProduct = new ProductBO();
-            newProduct.ID = txtID.Text;
+            newProduct.ID = Convert.ToInt32(txtID.Text);
             newProduct.Name = txtName.Text;
-            newProduct.ExpiryDate = DateTime.Parse(txtExpiryDate.Text);
+            newProduct.ExpiryDate = Convert.ToDateTime(txtExpiryDate.Text);
             newProduct.CompanyName = txtCompany.Text;
-            newProduct.Year = Int32.Parse( txtYear.Text);
+            newProduct.Year = Convert.ToInt32( txtYear.Text);
+            newProduct.Category = txtCategory.Text;
 
             int status = objProductBL.AddNewProduct(newProduct);
 
