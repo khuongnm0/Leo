@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BussinessObject\BussinessObject.csproj">
+      <Project>{f67d9497-d8e0-43ea-9f64-15f0b48b3845}</Project>
+      <Name>BussinessObject</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DataAccess.csproj">
       <Project>{5a308ad2-88d6-4a1d-9666-4a6a88931030}</Project>
       <Name>DataAccess</Name>

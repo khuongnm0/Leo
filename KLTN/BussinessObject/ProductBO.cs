@@ -8,12 +8,12 @@ namespace BussinessObject
 {
     public class ProductBO
     {
-        public string _ID { get; set; }
-        public string _Name { get; set; }
-        public string _ExpiryDate { get; set; }
-        public string _Company { get; set; }
-        public int _Year { get; set; }
-        public string _Category { get; set; }
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public DateTime ExpiryDate { get; set; }
+        public string CompanyName { get; set; }
+        public int Year { get; set; }
+        public string Category { get; set; }
 
     }
 

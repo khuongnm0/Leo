@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KLTN", "KLTN.csproj", "{2C8CA3DB-B3C2-4915-B3E9-6A35C5029A5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KTLT", "KTLT.csproj", "{2C8CA3DB-B3C2-4915-B3E9-6A35C5029A5E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "..\DAL\DataAccess.csproj", "{5A308AD2-88D6-4A1D-9666-4A6A88931030}"
 EndProject
